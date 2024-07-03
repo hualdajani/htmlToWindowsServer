@@ -13,4 +13,4 @@ name: Push HTML to Windows Server
           uses: actions/checkout@v4
 
         - name: Deploy/Copy to windows Server
-          run: sshpass -p ${{ secrets.PASSWORD }} scp Nishanth.html ${{ secrets.USERNAME }}@${{ secrets.IP}}:'C:/inetpub/wwwroot/'
+          run: sshpass -p ${{ secrets.PASSWORD }} scp Nishanth.html ${{ secrets.USERNAME }}@${{ secrets.IP}} StrictHostKeyChecking=no:'C:/inetpub/wwwroot/'
