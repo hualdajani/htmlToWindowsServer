@@ -1,0 +1,16 @@
+name: Push HTML to Windows Server
+
+  on:
+    Push:
+      branches:
+        -master
+  jobs:
+    deploymentjob:
+      name: Deploy to windos server
+      runs-on : ubuntu-latest
+      steps:
+        - name: Checking out
+          uses: actions/checkout@v4
+
+        - name: Deploy/Copy to windows Server
+          run: sshpass -p ${{ secrets.PASSWORD }} scp Nishanth.html ${{ secrets.USERNAME }}@${{ secrets.IP}}:'C:/inetpub/wwwroot/'
